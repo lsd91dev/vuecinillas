@@ -23,7 +23,7 @@ export default {
     name: 'Header',
     methods:{
         toHome(){
-            this.$router.push({path: '/'})
+            if(this.$route.path !== '/') this.$router.push({path: '/'})
         }
     },
     mounted(){
@@ -54,8 +54,12 @@ export default {
 
 
 .header small{
-    align-self:flex-end;
-    margin-left: 2.5em;
+    display: block;
+    align-self: flex-end;
+    justify-content: space-between;
+    color: #F2F1DF;
+    margin-left: auto;
+    margin-right: 2.5em;
     font-style: italic;
 }
 </style>

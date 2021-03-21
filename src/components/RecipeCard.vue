@@ -1,6 +1,7 @@
 <template>
+
   <div class="cards-container">
-      <div class="recipe-container" v-for="(meal, index ) in meals" :key="index">
+      <div class="recipe-container" v-for="(meal, index ) in meals" :key="index" @click="goRecipe(meal.idMeal)">
           <div class="img-recipe">
           <img :src="meal.strMealThumb+'/preview'">
           </div>
@@ -31,6 +32,11 @@ export default {
     name: 'RecipeCard',
     props:{
         meals: Array,
+    },
+    methods:{
+        goRecipe(idMeal){
+            this.$router.push({path:`/recipe/${idMeal}`});
+        }
     }
 }
 </script>
@@ -47,7 +53,7 @@ div.cards-container{
 /* recipe container */
 
 div.recipe-container{
-    border-bottom: 0.1em solid grey;
+    animation: aparition 0.5s;
     border-radius: 10px;
     height: 30em;
     margin-top: 1em;
@@ -61,7 +67,7 @@ div.recipe-container{
 }
 
 div.recipe-container:hover{
-    background-color:rgb(240, 240, 240);
+    cursor:pointer;
     transform: scale(1.05, 1.05);
     transition: all 0.3s;
     
@@ -79,8 +85,8 @@ div.recipe-container button {
 div.recipe-container::after{
     content:'';
     position:absolute;
-    border:0.5em solid #8BD9ADed;
-    border-radius: 10px;
+    border:0.2em solid #8BD9ADed;
+    /* border-radius: 10px; */
     top:0;
     bottom:0;
     left:0;
@@ -98,7 +104,7 @@ div.recipe-container div.img-recipe{
 div.img-recipe img{
     height: 100%;
     width: 100%;
-    border-radius: 0.5em;
+    border-radius: 0.2em;
     object-fit: cover;
 }
 
@@ -140,7 +146,7 @@ p.meal-name {
 div.recipe-container button {
     bottom: 0;
     border: 0;
-    border-radius:0.5em; 
+    /* border-radius:0.5em; */
     background-color: #8BD9ADed;
     cursor:pointer;
     height: 6em;
@@ -159,6 +165,17 @@ div.recipe-container button span {
     font-size: 1.5em;
     font-weight: bolder;
 }
+
+/* card animation */ 
+
+    @keyframes aparition {
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
 
 
 

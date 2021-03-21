@@ -3,14 +3,18 @@
     <h1> Which recipe are you looking for? </h1>
     <img src="@/assets/Cooking-bro.svg" alt="" class="cooking-search">
     <div class="thinkin-container"> <p> Hope you like this web!</p></div>
+    
   <form @submit.prevent @submit="getRecipes">
       <div class="search-container">
+        <button> <font-awesome-icon :icon="['fas', 'search']" size="2x" :style="{color: 'white'}"/></button>
         <input type="text" id="query" v-model="query" required/>
         <label for="query" class="label-container"> 
-            <span class="label-content"> Search by name</span>  
+            <span class="label-content"> Search by name</span>
+            
         </label>
+        
       </div>
-      <!--<button> Buscar </button>-->
+
   </form>
   
 </div>
@@ -32,14 +36,17 @@ export default {
         getRecipes(){
             getRecipesFetch( this.query ).then( ({meals}) => {
                 if(meals){
-                    // console.log(meals)
                     if(meals.length == 1){
                         let idMeal = meals[0].idMeal;
                         this.$router.push({path: `/recipe/${idMeal}`})
                     }else{
                         this.$emit('action', meals);
                     }
+                }else{
+                    this.$emit('action', meals);
                 }
+            }).catch( (error)=> {
+                console.log(error)
             })
         }
     },
@@ -61,10 +68,10 @@ div.form-container{
 }
 
 div.form-container form{
-    height: 100%;
+    height: 75%;
     overflow: hidden;
     position: relative;
-    width: 100%;
+    width: 65%;
 }
 
 div.form-container .search-container {
@@ -77,21 +84,23 @@ div.form-container .search-container {
 
 div.form-container form label {
     border-bottom: 1px solid #6FA682;
-    height:100%;
-    position:absolute;
-    pointer-events:none;
-    width:35em;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    width: 35em;
 }
 
 div .form-container form input{
     background-color: inherit;
     border: 0;
     bottom: 0;
-    font-size:1.5em;
+    font-size: 1.5em;
     padding-top: 25px;
     max-width: 90%;
     position: absolute;
     width: 100%;
+    left: 0;
 }
 
 /* Animation border label */
@@ -100,7 +109,6 @@ label.label-container::after{
     border-bottom: 3px solid #598a6a;
     bottom: -2px;
     content: "";
-    left: 0;
     height: 100%;
     position: absolute;
     transform: translateX(-100%);
@@ -150,6 +158,7 @@ img.cooking-search {
     box-shadow: 5px 7px 8px 0px #252625c4;
     opacity:0;
     transition: opacity 0.2s;
+    pointer-events: none;
 }
 
 
@@ -205,29 +214,21 @@ img.cooking-search:hover + .thinkin-container::after{
 
 
 
-/*div.form-container form button{
-    background-color: #8BD9AD;
+div.form-container form button {
     border: 0;
-    border-radius: 2em;
-    bottom:0;
-    color: #000;
-    padding: 1em;
-    left: 50%;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    background-color: #598a6a;
+    cursor: pointer;
     position: absolute;
-    transform: translateX(-50%);
-    width: 20em;
+    width: 35em;
+    margin-top: 2em;
+    height: 3em;
 }
 
-.form-container form button:focus{
+
+div.form-container form button:focus{
     outline:none;
 }
 
-.form-container form button:hover{
-    cursor:pointer;
-    background-color:#79d8a2;
-}*/
 
 
 
