@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import { logoAnimation } from '../gsap/logoAnimation.js';
 
 export default {
     name: 'Header',
@@ -25,10 +24,6 @@ export default {
         toHome(){
             if(this.$route.path !== '/') this.$router.push({path: '/'})
         }
-    },
-    mounted(){
-        const letters  = document.getElementsByClassName('letter');
-        logoAnimation(letters);
     }
 }
 </script>

@@ -86,7 +86,6 @@ div.recipe-container::after{
     content:'';
     position:absolute;
     border:0.2em solid #8BD9ADed;
-    /* border-radius: 10px; */
     top:0;
     bottom:0;
     left:0;
