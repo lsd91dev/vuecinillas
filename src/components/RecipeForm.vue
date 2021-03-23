@@ -16,7 +16,6 @@
       </div>
 
   </form>
-  
 </div>
 
 </template>
@@ -53,7 +52,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 
 div.form-container{

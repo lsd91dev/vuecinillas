@@ -13,7 +13,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
     div.no-results {
     animation: aparition 1s;

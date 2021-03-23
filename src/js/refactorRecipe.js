@@ -10,7 +10,7 @@ export const refactoredMeal = (meal) => {
 
     // return one json Object more legible
 
-    return filterMeal( meal, ingredients, measures)
+    return filterMeal( meal[0], ingredients, measures)
 }
 
 

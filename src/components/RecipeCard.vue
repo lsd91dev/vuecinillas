@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 /* parent container */
  
@@ -145,7 +145,6 @@ p.meal-name {
 div.recipe-container button {
     bottom: 0;
     border: 0;
-    /* border-radius:0.5em; */
     background-color: #8BD9ADed;
     cursor:pointer;
     height: 6em;
