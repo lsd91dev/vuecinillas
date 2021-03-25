@@ -12,7 +12,6 @@
             <span class="letter">l</span>
             <span class="letter">a</span>
             <span class="letter">s</span> </a>
-        <small> It's time to learn and cook!</small>
     </header>
 </template>
 

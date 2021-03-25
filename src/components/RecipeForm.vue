@@ -1,4 +1,5 @@
 <template>
+<div>
 <div class="form-container">
     <h1> Which recipe are you looking for? </h1>
     <img src="@/assets/imgs/Cooking-bro.svg" alt="" class="cooking-search">
@@ -16,6 +17,7 @@
       </div>
 
   </form>
+</div>
 </div>
 
 </template>
@@ -57,12 +59,11 @@ export default {
 
 div.form-container{
     box-shadow: 0.1em 0.1em 0.5em #252625;
-    height: 15em;
-    margin-top: 1.5em;
-    margin-left:1em;
-    padding: 1.5em;
+    box-sizing: border-box;
+    height: 18em;
+    padding: 1em;
     position: relative;
-    width: 90%;
+    width: 100%;
 }
 
 div.form-container form{
@@ -86,7 +87,7 @@ div.form-container form label {
     left: 0;
     position: absolute;
     pointer-events: none;
-    width: 35em;
+    width: 65%;
 }
 
 div .form-container form input{
@@ -96,8 +97,8 @@ div .form-container form input{
     font-size: 1.5em;
     padding-top: 25px;
     position: absolute;
-    width: 100%;
     left: 0;
+    width:65%;
 }
 
 /* Animation border label */
@@ -140,12 +141,11 @@ div.form-container form input:focus + label.label-container::after, div.form-con
 
 img.cooking-search {
     bottom: 0;
-    fill:none;
     height: 25em;
-    left: 75%;
+    left: 70%;
     position: absolute;
     transform: translate(-20%,17%);
-    z-index:1;
+    z-index: 1;
 }
 
 /* container hidden  -> activated by svg */
@@ -189,8 +189,8 @@ img.cooking-search:hover + .thinkin-container{
     height: 7em;
     opacity: 1;
     position: absolute;
-    right: 20%;
-    top: 0.2em;
+    right: 30%;
+    top: -30%;
     transition: opacity 0.2s;
     width: 10em;
 }
@@ -221,27 +221,20 @@ div.form-container form button:focus{
 
 /* -- Media queries -- */
 
-@media screen and (max-width: 985px){
-    img.cooking-search {
-        transform: translate(-25%,17%);
-    }
-}
-
 @media screen and (max-width: 775px){
-
-    div.form-container{
-        margin:auto;
-    }
 
     div.form-container form button {
         width: 100%;
     }
 
     img.cooking-search {
-        opacity:0;
-        pointer-events: none;
+        display:none;
     }
 
+
+    .thinkin-container{
+        display:none;
+    }
 
 }
 
