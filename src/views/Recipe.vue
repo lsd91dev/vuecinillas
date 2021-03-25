@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div v-if="meal">
       <Header />
       <div class="recipe-container">
       <div :style="{backgroundImage:`url(${meal.image})`}" class="recipe-background">
