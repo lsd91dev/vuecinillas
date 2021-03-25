@@ -13,4 +13,10 @@ html, body{
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
+
+@media screen and (max-width: 775px) {
+  body{
+    overflow-x:hidden;
+  }
+}
 </style>

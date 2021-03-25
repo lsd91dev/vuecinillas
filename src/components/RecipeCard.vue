@@ -176,6 +176,16 @@ div.recipe-container button span {
     }
 
 
+@media screen and (max-width:775px) {
+
+    div.recipe-container {
+        margin-left:1em;
+    }
+    
+    div.cards-container {
+        justify-content:center;
+    }
+}
 
 
 </style>

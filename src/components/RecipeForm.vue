@@ -59,8 +59,7 @@ div.form-container{
     box-shadow: 0.1em 0.1em 0.5em #252625;
     height: 15em;
     margin-top: 1.5em;
-    margin-left:1.5em;
-    min-width: 40em;
+    margin-left:1em;
     padding: 1.5em;
     position: relative;
     width: 90%;
@@ -70,7 +69,6 @@ div.form-container form{
     height: 75%;
     overflow: hidden;
     position: relative;
-    width: 65%;
 }
 
 div.form-container .search-container {
@@ -97,7 +95,6 @@ div .form-container form input{
     bottom: 0;
     font-size: 1.5em;
     padding-top: 25px;
-    max-width: 90%;
     position: absolute;
     width: 100%;
     left: 0;
@@ -203,16 +200,6 @@ img.cooking-search:hover + .thinkin-container::after{
     transition: opacity 0.2s;
 }
 
-/* svg media query */
-
-
-@media screen and (max-width: 985px){
-    img.cooking-search {
-        transform: translate(-25%,17%);
-    }
-}
-
-
 
 div.form-container form button {
     border: 0;
@@ -231,6 +218,33 @@ div.form-container form button:hover {
 div.form-container form button:focus{
     outline:none;
 }
+
+/* -- Media queries -- */
+
+@media screen and (max-width: 985px){
+    img.cooking-search {
+        transform: translate(-25%,17%);
+    }
+}
+
+@media screen and (max-width: 775px){
+
+    div.form-container{
+        margin:auto;
+    }
+
+    div.form-container form button {
+        width: 100%;
+    }
+
+    img.cooking-search {
+        opacity:0;
+        pointer-events: none;
+    }
+
+
+}
+
 
 
 
