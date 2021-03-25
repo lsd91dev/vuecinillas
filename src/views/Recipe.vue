@@ -9,7 +9,7 @@
         </div>
         </div>
       <div class="recipe-card-ingredients">
-        <img src="@/assets/icons/ingredients.svg" :alt="meal.strCategory" class="svg-icon">
+        <img src="@/assets/imgs/icons/ingredients.svg" :alt="meal.strCategory" class="svg-icon">
           <h2> Ingredients </h2>
           <hr>
           <ul>
@@ -22,12 +22,12 @@
  
       </div>
         <div class="recipe-card-instructions">
-          <img src="@/assets/icons/rolling-ping.svg" :alt="meal.strCategory" class="svg-icon">
+          <img src="@/assets/imgs/icons/rolling-ping.svg" :alt="meal.strCategory" class="svg-icon">
             <h2> Instructions </h2>
             <hr>
             <p> {{ meal.instructions }} </p>
         <div class="svg-container">
-            <img src="../assets/Chef-bro.svg">
+            <img src="@/assets/imgs/Chef-bro.svg">
           </div>
       </div>
 
@@ -55,10 +55,10 @@ export default {
     getRecipeFetch(this.idMeal).then( ({ meals }) => {
       this.meal = meals;
       this.meal = refactoredMeal(this.meal);
-      console.log(this.meal);
       }
       ).catch(error => {
       console.log(error)
+      this.$router.push({path: '/PageNotFound'})
     });
   }
   }

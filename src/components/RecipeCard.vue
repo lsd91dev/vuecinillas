@@ -3,22 +3,22 @@
   <div class="cards-container">
       <div class="recipe-container" v-for="(meal, index ) in meals" :key="index" @click="goRecipe(meal.idMeal)">
           <div class="img-recipe">
-          <img :src="meal.strMealThumb+'/preview'">
+          <img :src="`${meal.strMealThumb}/preview`">
           </div>
           <div class="recipe-description">
               <div class="recipe-name">
                 <p class="meal-name"> {{ meal.strMeal }}</p>
-                <img src="@/assets/icons/rolling-ping.svg" :alt="meal.strCategory" class="svg-icon">
+                <img src="@/assets/imgs/icons/rolling-ping.svg" :alt="meal.strCategory" class="svg-icon">
               </div>
             <hr>
             <div class="recipe-category">
                 <p> Category: {{ meal.strCategory }} </p>
-                <img src="@/assets/icons/category.svg" :alt="meal.strCategory" class="svg-icon">
+                <img src="@/assets/imgs/icons/category.svg" :alt="meal.strCategory" class="svg-icon">
             </div>
             <hr>
             <div class="recipe-area">
                 <p> {{ meal.strArea }} recipe </p>
-                <img src="@/assets/icons/food-location.svg" :alt="meal.strCategory" class="svg-icon">
+                <img src="@/assets/imgs/icons/food-location.svg" :alt="meal.strCategory" class="svg-icon">
             </div>
             
           </div>

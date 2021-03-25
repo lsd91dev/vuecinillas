@@ -1,7 +1,7 @@
 <template>
 <div class="form-container">
     <h1> Which recipe are you looking for? </h1>
-    <img src="@/assets/Cooking-bro.svg" alt="" class="cooking-search">
+    <img src="@/assets/imgs/Cooking-bro.svg" alt="" class="cooking-search">
     <div class="thinkin-container"> <p> Hope you like this web!</p></div>
     
   <form @submit.prevent @submit="getRecipes">
@@ -80,6 +80,7 @@ div.form-container .search-container {
     transform: translate(-50%, -35%);
     width: 100%;
 }
+
 
 div.form-container form label {
     border-bottom: 1px solid #6FA682;
@@ -223,6 +224,9 @@ div.form-container form button {
     height: 3em;
 }
 
+div.form-container form button:hover {
+    background-color: #3f614b;
+}
 
 div.form-container form button:focus{
     outline:none;

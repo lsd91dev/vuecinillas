@@ -1,5 +1,3 @@
-// ingredients are stored as (strIngredient1, strIngredient2, etc) and (strMeasure1, strMeasure2, etc) so it's necessary to filter them by property's name
-
 
 // get meal
 export const refactoredMeal = (meal) => {
@@ -10,28 +8,26 @@ export const refactoredMeal = (meal) => {
 
     // return one json Object more legible
 
-    return filterMeal( meal[0], ingredients, measures)
+    return newJsonMeal( meal[0], ingredients, measures)
 }
 
 
+// ingredientes & measures came as strIngredient0, strIngredient1 and such
+// return two separates arrays with all ingredients and measures
+
 const getIngredientsAndMeasures = ([meal]) => {
     let ingredients = [], measures = [];
-
-    // ingredientes & measures came as strIngredient0, strIngredient1 and such so it's better to push them into two news arrays
     for( let key in meal ){
-        if(key.includes('strIngredient') && meal[key]){
-            ingredients.push(meal[key]);
-        }else if (key.includes('strMeasure') && meal[key] != ' '){
-            measures.push(meal[key]);}
+        if (includesIngredient(key, meal)) ingredients.push(meal[key]);
+        else if (includesMeasure(key, meal)) measures.push(meal[key]);
     }
-
     return [ingredients, measures];
 }
 
 
 // extract what we need from object and insert arrays of ingredientes and measures created
 
-const filterMeal = ({idMeal, strArea, strCategory, strMeal, strInstructions, strMealThumb, strSource, strYoutube}, ingredients, measures) => {
+const newJsonMeal = ({idMeal, strArea, strCategory, strMeal, strInstructions, strMealThumb}, ingredients, measures) => {
     return {
         id : idMeal,
         area : strArea,
@@ -41,7 +37,13 @@ const filterMeal = ({idMeal, strArea, strCategory, strMeal, strInstructions, str
         ingredients,
         measures,
         image : strMealThumb,
-        source : strSource,
-        youtube : strYoutube
     }
+}
+
+const includesIngredient = (key, meal) => {
+    return key.includes('strIngredient') && meal[key];
+}
+
+const includesMeasure = (key, meal) => {
+    return key.includes('strMeasure') && meal[key] != ' ';
 }

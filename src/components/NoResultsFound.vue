@@ -1,15 +1,15 @@
 <template>
     <div class="no-results">
         <div class="svg-container">
-            <img src="@/assets/icons/Feeling-sorry-bro.svg" />
+            <img src="@/assets/imgs/icons/Feeling-sorry-bro.svg" />
         </div>
-        <p> It seems there is no results... </p>
+        <p> It seems there is no results for your search </p>
     </div>
 </template>
 
 <script>
 export default {
-
+    name: 'NoResultsFound'
 }
 </script>
 

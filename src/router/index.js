@@ -12,12 +12,21 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import('../views/About.vue')
+    component: () => import('../views/About.vue'),
   },
   {
     path: '/recipe/:id',
     name: 'Recipe',
     component: () => import ('../views/Recipe.vue'),
+    beforeEnter: (to, from, next) => {
+      if( idIsValid(to.params.id)){ next({path: 'PageNotFound'}) }
+      next();
+    },
+  },
+  {
+    path:'*',
+    name:'PageNotFound',
+    component: () => import ('../views/PageNotFound.vue')
   }
 ]
 
@@ -26,5 +35,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+const idIsValid = (id) => { return isNaN(id) }
 
 export default router
